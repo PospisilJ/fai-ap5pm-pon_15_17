@@ -29,17 +29,13 @@ export class MealdbApiService {
     }
 
     getMealList(): Observable<void> {
-        const categoryAsArray = Object.keys(MEALDB_Category).map(i => MEALDB_Category[i]);
-        const eightCategories = this._randomFromArray(categoryAsArray, 8);
-        // console.log('eightCategories', eightCategories);
-        const arrayOfHttpCalls = eightCategories.map(category =>
+        const categoryPole = Object.keys(MEALDB_Category).map(i => MEALDB_Category[i]);
+        const categoryOsm = this._randomFromArray(categoryPole, 8);
+        const httpCallPole = categoryOsm.map(category =>
             this.getMealsByCategory(category)
         );
-        // console.log('arrayOfHttpCalls', arrayOfHttpCalls);
-        return forkJoin(arrayOfHttpCalls).pipe(
+        return forkJoin(httpCallPole).pipe(
             map((res: Array<MEALDB_ListItem>) => {
-                // [].concat(res)
-                // console.log('response from httpCalls', res);
                 this.meals$.next(this.meals$.getValue().concat(res));
             })
         );

@@ -63,25 +63,7 @@ export class MealPage implements OnInit {
         return meal.strInstructions.split('\n').filter(i => i.trim());
     }
 
-    // async toSaved(meal: any) {
-    //     console.log("meal", meal);
-    //     this.ulozenaJidlaPole = await this.localStorage.getData("ulozenaJidla");
-    //     console.log("ulozenaJidla", this.ulozenaJidlaPole)
 
-    //     if(this.ulozenaJidlaPole != null){
-    //         this.ulozenaJidlaPole.push(meal);
-    //         this.localStorage.setData("ulozenaJidla", this.ulozenaJidlaPole);
-    //     }else{
-    //         this.ulozenaJidlaPole.push(meal);
-    //         this.localStorage.setData("ulozenaJidla", this.ulozenaJidlaPole);
-    //     }
-        
-
-    //     // if (!this.ulozenaJidlaPole.includes(meal)) {
-    //     //   this.ulozenaJidlaPole.push(meal);
-    //     //   this.localStorage.setData("ulozenaJidla", this.ulozenaJidlaPole);
-    //     // }
-    // }
 
     async toSaved(meal: any) {
         console.log("meal", meal);
@@ -117,14 +99,5 @@ export class MealPage implements OnInit {
         }
 
 
-        
-
-        // if (!this.oblibenaJidlaPole.includes(meal)) {
-        //     console.log(this.oblibenaJidlaPole);
-        //     this.oblibenaJidlaPole.push(meal);
-        //     console.log(this.oblibenaJidlaPole);
-        //     this.localStorage.setData("oblibenaJidla", this.oblibenaJidlaPole);
-        //     console.log(this.oblibenaJidlaPole);
-        // }
     }
 }
